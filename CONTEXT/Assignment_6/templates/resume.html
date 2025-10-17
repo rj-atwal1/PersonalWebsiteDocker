@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Resume - RJVIR ATWAL{% endblock %}
+{% block header_h1 %}Resume{% endblock %}
+{% block content %}
+  <section class="resume">
+    {{ resume_html | safe }}
+  </section>
+{% endblock %}

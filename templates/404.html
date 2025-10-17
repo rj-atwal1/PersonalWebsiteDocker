@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Page Not Found{% endblock %}
+{% block header_h1 %}Not Found{% endblock %}
+{% block content %}
+  <section>
+    <h2>Oops!</h2>
+    <p>The page you are looking for could not be located. Head back to the <a href="{{ url_for('index') }}">home page</a> or jump straight to the <a href="{{ url_for('projects') }}">Projects</a> list.</p>
+  </section>
+{% endblock %}
