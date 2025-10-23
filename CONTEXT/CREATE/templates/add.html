@@ -1,0 +1,60 @@
+<!-- CREATE CHILD TEMPLATE FOR "ADD" PAGE (aka Insert Record Page) -->
+<!-- Inherit the Parent page first -->
+{% extends "layout.html" %}
+
+<!-- Replace the "placeholder" called head in the parent template with the following -->
+{% block head %}
+    <title>Insert Record Page</title>
+{% endblock %}
+
+
+<!-- Replace the "placeholder" called body in the parent template with the following -->
+{% block body %}
+    <form action="/add" method="post">
+        <!-- START Specific to Movie Add -->
+        Add a Movie?<br>
+        <!-- Name this TEXTBOX "movname"-->
+        <input autocomplete="off" autofocus name="movtitle" placeholder="Movie Title" type="text"><br>
+        <!-- Name this TEXTBOX "movyear"-->
+        <input autocomplete="off" autofocus name="movyear" placeholder="Movie Release Year" type="number"><br>
+        <!-- Name this TEXTBOX "ImageName"-->
+        <input autocomplete="off" autofocus name="ImageName" placeholder="Image Name" type="text"><br>
+        <!-- Add a Submit button-->
+        <input type="submit">
+        <h2>Don't forget to upload the image to the Images folder!</h2>
+        <br>
+        <br>
+        <!-- END Specific to Movie Add -->
+
+        <!-- PRINT THE MOVIES IN A TABLE SO THAT WE CAN SEE WHAT WE ARE ADDING-->
+        <H2><u>Ordered List of Movies (JUST LIKE THE <b>READ</b> INDEX PAGE except no image)</u></H2>
+        <table>
+            <!-- m will represent each dictionary entry made up of a Name key and a Year key -->
+            <!-- !!!NOTE!!!: The m.variable is the KEY of the dictionary from the getAllMovies() method-->
+            <!-- It is CASE SENSITIVE. So, if the key is "Title", you must use "Title" in the template -->
+            <!-- If the key is "Year", you must use "Year" in the template -->
+            <!-- If the key is "Image", you must use "Image" in the template -->
+            <!-- If the key is "Title", you must use "Title" in the template -->
+            {% for m in message %}
+                <tr> <!-- the double curly braces must be together with no spaces-->
+                     <td>
+                        {{m.Title}}
+                    </td>  
+                     <td>
+                        {{m.Year}}
+                    </td> 
+                     <td>
+                        <!-- The src is a dynamically built URL to the image file-->
+                        <img 
+                            src="{{ url_for('static', filename='images/' + m.Image) }}" 
+                            alt="Movie Image" 
+                            height="100" 
+                            width="70">
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </form>
+
+ {% endblock %}

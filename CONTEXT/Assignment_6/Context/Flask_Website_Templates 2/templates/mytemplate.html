@@ -1,0 +1,40 @@
+<!-- STATIC HTML: NEVER CHANGES !! No Blocks here !!-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jay’s Website</title>
+        <!-- Option 1: Link to the CSS file in the static folder -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- Option 2: Hard-code the location not using the url_for function -->
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <H1>Jay's Website Based on Templates</H1>
+        </div>
+        <table border="1" width="100%">
+            <tr>
+                <!-- The Navigation will go here. Column 1 of this table-->
+                <td width="50px" style="vertical-align: top;">
+                    <a href="page1">Page 1</a><br />  <!-- href = ROUTE from app.py;  NOT page1.html -->
+                    <a href="page2">Page 2</a><br />
+                    <a href="page3">Page 3</a><br />
+                </td>
+                <!-- The real body of the page will go here but for now this is just a place holder.  Column 2 of this table -->
+                <td  bgcolor= "LightBlue">
+                    <!-- END STATIC HTML: NEVER CHANGES -->
+
+                    <!-- DYNAMIC HTML !! Uses Blocks: THIS WILL CHANGE -->
+                    <!-- the code below is how I START a "placeholder" -->
+                    {% block body %}
+                    {% endblock %}
+                    <!-- the code above is how I END a "placeholder" -->
+                    <!-- END DYNAMIC HTML: CHANGES -->
+
+                    <!-- STATIC HTML: NEVER CHANGES -->
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+<!-- END STATIC HTML: NEVER CHANGES -->

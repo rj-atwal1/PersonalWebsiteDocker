@@ -1,0 +1,11 @@
+Add or change the following to your Personal Website
+
+Add a Data Access Layer file called DAL.py to hold.
+DAL.py should include the statements - import sqlite and methods needed to interact with the database
+Create a database called projects.db and create a single table in the database called projects. This table should have at least 3 columns (Title, Description, and ImageFileName).  You may add additional columns as needed.
+Note: You will just drag and drop your images to your static\images folder.  You will not need to add the ability to upload or "submit" the actual image through the webform. We will add that later. (you can ask AI to help you with that feature if you want)
+Convert your Projects page to pull your project information from the Projects table in your database.
+Have each project displayed in an HTML table on your projects page. Each project should show a minimum of Title, Description and the actual image you associated with your project (should link to the image in your static/images folder).
+Convert your Form page to allow a person to insert/add new projects into your Projects table. 
+These projects should be viewable immediately by going back to your projects webpage
+Add a delete page or the ability to remove projects from the database

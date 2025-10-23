@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Home - Personal Webpage{% endblock %}
+{% block header_h1 %}RJVIR ATWAL{% endblock %}
+{% block bubbles %}
+  <div class="shape" style="left:10%;top:60%;width:160px;height:160px;background:radial-gradient(circle, rgba(255,255,255,0.24), rgba(255,255,255,0));animation:float 18s linear infinite"></div>
+  <div class="shape" style="left:80%;top:75%;width:120px;height:120px;background:radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0));animation:float 22s linear infinite"></div>
+  <div class="shape" style="left:45%;top:30%;width:90px;height:90px;background:radial-gradient(circle, rgba(255,255,255,0.18), rgba(255,255,255,0));animation:float 14s linear infinite"></div>
+{% endblock %}
+{% block content %}
+  <section class="hero">
+    <h2>Welcome</h2>
+    <p>This site showcases my background, projects, and a live portfolio backed by a SQLite database. Use the navigation above to explore.</p>
+  </section>
+
+  <section class="quick-links">
+    <div class="card">
+      <h3>About Me</h3>
+      <p>Learn more about my background and interests.</p>
+      <a class="btn" href="{{ url_for('about') }}">Read more</a>
+    </div>
+    <div class="card">
+      <h3>Resume</h3>
+      <p>Browse my resume rendered directly from Markdown.</p>
+      <a class="btn" href="{{ url_for('resume') }}">View resume</a>
+    </div>
+    <div class="card">
+      <h3>Projects</h3>
+      <p>See every project stored in the SQLite database.</p>
+      <a class="btn" href="{{ url_for('projects') }}">See projects</a>
+    </div>
+    <div class="card">
+      <h3>Add a Project</h3>
+      <p>Submit a new project and it will appear instantly on the Projects page.</p>
+      <a class="btn" href="{{ url_for('project_form') }}">Add project</a>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home - Personal Webpage{% endblock %}
+{% block header_h1 %}RJVIR ATWAL{% endblock %}
+{% block bubbles %}
+  <div class="bubble" style="left:10%;width:140px;height:140px;animation-duration:18s;opacity:0.08"></div>
+  <div class="bubble" style="left:80%;width:90px;height:90px;animation-duration:14s;opacity:0.06;top:70%"></div>
+  <div class="bubble" style="left:40%;width:110px;height:110px;animation-duration:20s;opacity:0.05;top:60%"></div>
+{% endblock %}
+{% block content %}
+  <section class="hero">
+    <h2>Welcome</h2>
+    <p>This site showcases my background, projects, and contact information. Use the navigation above to explore.</p>
+  </section>
+
+  <section class="quick-links">
+    <div class="card">
+      <h3>About Me</h3>
+      <p>Learn more about my background and interests.</p>
+      <a class="btn" href="{{ url_for('about') }}">Read more</a>
+    </div>
+    <div class="card">
+      <h3>Resume</h3>
+      <p>View my resume and experience.</p>
+      <a class="btn" href="{{ url_for('resume') }}">View resume</a>
+    </div>
+    <div class="card">
+      <h3>Projects</h3>
+      <p>Two showcased projects with links to demos and repos.</p>
+      <a class="btn" href="{{ url_for('projects') }}">See projects</a>
+    </div>
+  </section>
+{% endblock %}

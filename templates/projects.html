@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Projects - Personal Webpage{% endblock %}
+{% block header_h1 %}Projects{% endblock %}
+{% block content %}
+  <section>
+    <h2>Project Portfolio</h2>
+    <p>Every project shown below is stored in the <code>projects</code> table inside <code>projects.db</code>. Add something new from the Add Project page and it will appear here immediately.</p>
+    <p>
+      <a class="btn" href="{{ url_for('project_form') }}">Add another project</a>
+    </p>
+
+    {% if projects %}
+      <table class="projects-table" aria-describedby="projects-info">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Preview</th>
+            <th scope="col">Links</th>
+            <th scope="col" class="actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for project in projects %}
+            <tr>
+              <td>{{ project.title }}</td>
+              <td>{{ project.description }}</td>
+              <td>
+                <img src="{{ url_for('static', filename='images/' ~ project.image_filename) }}" alt="Screenshot for {{ project.title }}">
+              </td>
+              <td>
+                {% if project.repo_url %}
+                  <a class="btn secondary" href="{{ project.repo_url }}" target="_blank" rel="noopener">Repository</a>
+                {% endif %}
+                {% if project.demo_url %}
+                  <a class="btn secondary" href="{{ project.demo_url }}" target="_blank" rel="noopener">Live Demo</a>
+                {% endif %}
+              </td>
+              <td class="actions">
+                <form action="{{ url_for('delete_project_view', project_id=project.id) }}" method="post" onsubmit="return confirm('Delete {{ project.title }}?');">
+                  <button type="submit" class="delete-btn">Delete</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p id="projects-info">Showing {{ projects|length }} project{{ 's' if projects|length != 1 else '' }}.</p>
+    {% else %}
+      <p>No projects yet. Head over to the Add Project page to create the first entry.</p>
+    {% endif %}
+  </section>
+{% endblock %}
